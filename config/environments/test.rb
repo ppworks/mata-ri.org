@@ -37,4 +37,7 @@ Zoochat::Application.configure do
 
   # mailer
   config.action_mailer.default_url_options = { :host => 'localhost' }
+  ActionMailer::Base.delivery_method = :test
+  ActionMailer::Base.perform_deliveries = true
+  ActionMailer::Base.deliveries = []
 end
