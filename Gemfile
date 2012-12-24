@@ -3,6 +3,9 @@ source :rubygems
 gem 'rails', '3.2.9'
 gem 'jquery-rails'
 gem 'thin'
+gem 'devise'
+gem 'omniauth'
+gem 'omniauth-facebook'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
