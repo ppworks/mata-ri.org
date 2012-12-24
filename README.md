@@ -54,3 +54,12 @@ vim .env
 ```
 foreman start -f Procfile.development
 ```
+
+## heroku
+
+```
+heroku create zoochat
+heroku addons:add heroku-postgresql:dev
+heroku addons:add pgbackups:auto-week
+heroku addons:add newrelic
+```
