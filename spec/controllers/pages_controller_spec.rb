@@ -1,12 +1,12 @@
 require 'spec_helper'
 
 describe PagesController do
-
+  subject { response }
+ 
   describe "GET 'index'" do
-    it "returns http success" do
+    before do
       get 'index'
-      response.should be_success
     end
+    it { should be_success }
   end
-
 end
