@@ -41,3 +41,16 @@ y[es], n[o], v[iew], c[ancel]>
 ```
 
 Enter 'y'
+
+## development
+
+Customize .env for your environment.
+
+```
+cp .env.sample .env
+vim .env
+```
+
+```
+foreman start -f Procfile.development
+```
