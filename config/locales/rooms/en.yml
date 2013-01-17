@@ -1,0 +1,5 @@
+en:
+  rooms:
+    index:
+      no_last_arrived_at: '-'
+      no_last_left_at: '-'
