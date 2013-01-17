@@ -142,5 +142,65 @@ module RoutingResourcesMacros
         end
       end
     end
+
+    def nasted_resource_should_routes parent, resources, methods = [:new, :show, :edit, :create, :update, :destroy]
+      parent_id = '12345'
+      describe "routing /#{parent}/:#{parent.singularize}_id/#{resources} CRUD" do
+        if methods.include? :new
+          it "routes to #new" do
+            get("/#{parent}/#{parent_id}/#{resources}/new").should route_to("#{resources}#new", "#{parent.singularize}_id" => parent_id)
+          end
+        else
+          it "no routes to #new" do
+            get("/#{parent}/#{parent_id}/#{resources}/new").should_not route_to("#{resources}#new", "#{parent.singularize}_id" => parent_id)
+          end
+        end
+        if methods.include? :show
+          it "routes to #show" do
+            get("/#{parent}/#{parent_id}/#{resources}").should route_to("#{resources}#show", "#{parent.singularize}_id" => parent_id)
+          end
+        else
+          it "no routes to #show" do
+            get("/#{parent}/#{parent_id}/#{resources}").should_not route_to("#{resources}#show", "#{parent.singularize}_id" => parent_id)
+          end
+        end
+        if methods.include? :edit
+          it "routes to #edit" do
+            get("/#{parent}/#{parent_id}/#{resources}/edit").should route_to("#{resources}#edit", "#{parent.singularize}_id" => parent_id)
+          end
+        else
+          it "no routes to #edit" do
+            get("/#{parent}/#{parent_id}/#{resources}/edit").should_not route_to("#{resources}#edit", "#{parent.singularize}_id" => parent_id)
+          end
+        end
+        if methods.include? :create
+          it "routes to #create" do
+            post("/#{parent}/#{parent_id}/#{resources}").should route_to("#{resources}#create", "#{parent.singularize}_id" => parent_id)
+          end
+        else
+          it "no routes to #create" do
+            post("/#{parent}/#{parent_id}/#{resources}").should_not route_to("#{resources}#create", "#{parent.singularize}_id" => parent_id)
+          end
+        end
+        if methods.include? :update
+          it "routes to #update" do
+            put("/#{parent}/#{parent_id}/#{resources}").should route_to("#{resources}#update", "#{parent.singularize}_id" => parent_id)
+          end
+        else
+          it "no routes to #update" do
+            put("/#{parent}/#{parent_id}/#{resources}").should_not route_to("#{resources}#update", "#{parent.singularize}_id" => parent_id)
+          end
+        end
+        if methods.include? :destroy
+          it "routes to #destroy" do
+            delete("/#{parent}/#{parent_id}/#{resources}").should route_to("#{resources}#destroy", "#{parent.singularize}_id" => parent_id)
+          end
+        else
+          it "no routes to #destroy" do
+            delete("/#{parent}/#{parent_id}/#{resources}").should_not route_to("#{resources}#destroy", "#{parent.singularize}_id" => parent_id)
+          end
+        end
+      end
+    end
   end
 end
