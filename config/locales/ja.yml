@@ -1,0 +1,7 @@
+ja:
+  date:
+    long: "%m月%d日 %H:%M"
+    short: "%m月%d日"
+  time:
+    long: "%H:%M:%s"
+    short: "%H:%M"

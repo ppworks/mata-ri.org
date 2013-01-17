@@ -1,0 +1,10 @@
+ja:
+  activerecord:
+    models:
+      room: '部屋'
+    attributes:
+      room:
+        name: '名称'
+        last_arrived_at: '最終入室日時'
+        last_left_at: '最終退室日時'
+        members_count: '入室人数'

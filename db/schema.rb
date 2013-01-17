@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121224160416) do
+ActiveRecord::Schema.define(:version => 20130117130046) do
 
   create_table "connections", :force => true do |t|
     t.integer  "provider_id",   :null => false
@@ -38,6 +38,17 @@ ActiveRecord::Schema.define(:version => 20121224160416) do
   end
 
   add_index "providers", ["name"], :name => "idx_n_on_providers"
+
+  create_table "rooms", :force => true do |t|
+    t.text     "name",                           :null => false
+    t.text     "content"
+    t.datetime "last_arrived_at"
+    t.datetime "last_left_at"
+    t.integer  "members_count",   :default => 0, :null => false
+    t.integer  "max_count",       :default => 0, :null => false
+    t.datetime "created_at",                     :null => false
+    t.datetime "updated_at",                     :null => false
+  end
 
   create_table "users", :force => true do |t|
     t.string   "name",                   :default => ""
