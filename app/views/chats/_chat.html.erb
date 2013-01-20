@@ -1,6 +1,8 @@
-<div class="message">
-  <%= t('.name_html', name: chat.user_name, color: chat.color) %>
-  <%= chat.room.name unless chat.room_id == room.try(:id) %>
-  <span class="content"><%= t('.content_html', content: chat.content, color: chat.color) %></span>
-  <time><%= chat.created_at.strftime(t('date.long')) %></time>
-</div>
+<% case chat.type %>
+<% when 'Chat::Message' %>
+  <%= render 'chats/chat_message', chat: chat, room: room %>
+<% when 'Chat::Arrived' %>
+  <%= render 'chats/chat_arrived', chat: chat, room: room %>
+<% when 'Chat::Left' %>
+  <%= render 'chats/chat_left', chat: chat, room: room %>
+<% end %>
