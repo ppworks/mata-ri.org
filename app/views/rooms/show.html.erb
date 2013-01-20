@@ -2,12 +2,12 @@
 
 <%= form_tag room_participants_path(@room) do |form| %>
   <div>
-    <%= text_field_tag :user_name %>
+    <%= text_field_tag :user_name, current_user.try(:name) %>
   </div>
   <div>
     <% @colors.each do|color| %>
       <label>
-        <%= radio_button_tag :color, color %>
+        <%= radio_button_tag :color, color, user_signed_in? ? current_user.color == color : @colors[-1] == color %>
         <span style="color: <%= color %>;">★</span>
       </label>
     <% end %>
