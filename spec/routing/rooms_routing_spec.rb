@@ -6,6 +6,6 @@ describe RoomsController do
     it { File.exists?("#{Rails.root}/public/index.html").should be_false }
   end
   describe "routing /rooms" do
-    resources_should_routes 'rooms', [:show]
+    resources_should_routes 'rooms', [:index, :show]
   end
 end

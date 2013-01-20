@@ -1,0 +1,12 @@
+<%= form_tag room_chats_path(@room) do %>
+  <div>
+    <%= text_field_tag :content %>
+  </div>
+  <%= submit_tag t('.send') %>
+<% end %>
+
+<%= form_tag room_participants_path(@room), method: 'delete' do %>
+  <%= submit_tag t('.leave') %>
+<% end %>
+
+<%= render 'chats/chats', chats: @chats %>
