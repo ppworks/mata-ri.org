@@ -1,2 +1,2 @@
-class Chat::Mesage < Chat
+class Chat::Message < Chat
 end

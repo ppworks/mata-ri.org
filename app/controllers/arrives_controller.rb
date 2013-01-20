@@ -6,6 +6,7 @@ class ArrivesController < ApplicationController
     @chat = @room.chat_arriveds.build(user_name: params[:user_name], color: params[:color]) 
     if @chat.valid?
       @chat.save!
+      redirect_to room_chats_path(@room)
     else
       redirect_to room_path(@room)
     end

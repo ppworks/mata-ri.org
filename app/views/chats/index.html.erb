@@ -1,8 +1,7 @@
-<h1><%= @room.name %></h1>
-
-<%= form_tag room_arrives_path(@room) do |form| %>
+<%= form_tag room_chats_path(@room) do %>
   <div>
     <%= text_field_tag :user_name %>
+    <%= text_field_tag :content %>
   </div>
   <div>
     <% @colors.each do|color| %>
@@ -12,7 +11,14 @@
       </label>
     <% end %>
   </div>
-  <%= submit_tag t('.arrive') %>
+  <%= submit_tag t('.send') %>
+<% end %>
+
+<%= form_tag room_arrives_path(@room) do %>
+  <div>
+    <%= text_field_tag :user_name %>
+  </div>
+  <%= submit_tag t('.leave') %>
 <% end %>
 
 <%= render 'chats/chats', chats: @chats %>

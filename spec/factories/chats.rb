@@ -2,11 +2,9 @@
 
 FactoryGirl.define do
   factory :chat do
-    room_id 1
-    user_id 1
     user_name "MyString"
     content "MyText"
     color "MyString"
-    type ""
+    type "Chat::Message"
   end
 end

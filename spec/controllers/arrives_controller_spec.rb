@@ -19,7 +19,7 @@ describe ArrivesController do
       before do
         post :create, room_id: room.id, user_name: user_name, color: color
       end
-      it { should be_success }
+      it { should redirect_to room_chats_path(room) }
     end
   end
 
