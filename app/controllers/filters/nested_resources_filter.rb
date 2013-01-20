@@ -7,7 +7,9 @@ class Filters::NestedResourcesFilter
         parent_model = resources.classify.constantize
         parent_id = c.params["#{resources.singularize}_id"]
         c.instance_eval do
-          @parent = parent_model.find parent_id
+          @parent = Rails.cache.fetch("#{resources.singularize}:#{parent_id}") do
+            parent_model.find parent_id
+          end
         end
       end
     end
