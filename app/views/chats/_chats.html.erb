@@ -1,5 +1,14 @@
-<ul class="chats">
+<ul class="chats" data-list="chats">
 <% chats.each do|chat| %>
-  <li><%= render 'chats/chat', chat: chat, room: room %></li>
+  <li>
+    <% case chat.type %>
+    <% when 'Chat::Message' %>
+      <%= render 'chats/chat', chat: chat, room: room %>
+    <% when 'Chat::Arrived' %>
+      <%= render 'chats/chat_arrived', chat: chat, room: room %>
+    <% when 'Chat::Left' %>
+      <%= render 'chats/chat_left', chat: chat, room: room %>
+    <% end %>
+  </li>
 <% end %>
 </ul>

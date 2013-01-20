@@ -38,4 +38,9 @@ Zoochat::Application.configure do
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
   ActionMailer::Base.delivery_method = :sendmail
   ActionMailer::Base.perform_deliveries = true
+
+  # pusher
+  Pusher.app_id = ENV["PUSHER_APP_ID"]
+  Pusher.key    = ENV["PUSHER_APP_KEY"]
+  Pusher.secret = ENV["PUSHER_APP_SECRET"]
 end

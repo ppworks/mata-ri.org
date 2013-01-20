@@ -3,3 +3,12 @@ en:
     index:
       leave: 'Leave'
       send: 'Send'
+      member:
+        h1: 'Participants:'
+    chat:
+      name_html: '<span style="color:%{color};">%{name}</span>'
+      content_html: '「<span style="color:%{color};">%{content}</span>」'
+    chat_arrived:
+      name_html: '<span style="color:%{color};">「%{name}」</span>さんが'
+    chat_left:
+      name_html: '<span style="color:%{color};">「%{name}」</span>さんが'
