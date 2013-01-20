@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe ArrivesController do
+describe ParticipantsController do
   let(:room) { FactoryGirl.create(:room1) } 
   
   subject { response }

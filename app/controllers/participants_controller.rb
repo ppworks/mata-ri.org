@@ -1,4 +1,4 @@
-class ArrivesController < ApplicationController
+class ParticipantsController < ApplicationController
   before_filter Filters::NestedResourcesFilter.new
 
   def create

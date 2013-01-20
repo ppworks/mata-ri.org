@@ -14,7 +14,7 @@
   <%= submit_tag t('.send') %>
 <% end %>
 
-<%= form_tag room_arrives_path(@room) do %>
+<%= form_tag room_participants_path(@room) do %>
   <div>
     <%= text_field_tag :user_name %>
   </div>
