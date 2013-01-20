@@ -65,4 +65,5 @@ heroku addons:add newrelic
 heroku addons:add sendgrid:starter
 heroku config:add FB_APP_ID=your_app_id FB_APP_SECRET=your_app_secret FB_APP_SCOPE=email
 heroku config:add MAIL_DOMAIN=heroku.com MAIL_HOST=smtp.sendgrid.net
+heroku addons:add pusher:sandbox
 ```
