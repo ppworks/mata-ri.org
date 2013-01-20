@@ -42,6 +42,7 @@ class ChatsController < ApplicationController
     @room = @parent
     begin
       @chat = @room.chat_messages.create!(
+        user_id: current_user.id,
         user_name: current_user.name,
         color: current_user.color,
         content: params[:content],

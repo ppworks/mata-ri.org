@@ -12,6 +12,7 @@ jQuery ->
   user_id = $('body').attr('data-user_id')
   channel = pusher.subscribe('presence-chats_' + room_id)
   channel.bind 'chat', (data) ->
+    return if data.user_id == user_id
     $.ajax(
       url: '/rooms/' + room_id + '/chats/' + data.id,
       success: (data) ->
