@@ -12,4 +12,12 @@ class Chat < ActiveRecord::Base
   scope :participants, lambda{
     where(type: ['Chat::Arrived', 'Chat::Left'])
   }
+
+  after_create :send_to_pusher
+
+  private
+
+  def send_to_pusher
+    Pusher["presence-chats_#{self.room_id}"].trigger('chat', id: self.id, user_id: self.user_id.to_s) unless Rails.env.test?
+  end
 end

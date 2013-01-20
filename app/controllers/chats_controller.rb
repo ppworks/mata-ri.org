@@ -43,7 +43,6 @@ class ChatsController < ApplicationController
         color: current_user.color,
         content: params[:content],
       )
-      Pusher["presence-chats_#{@room.id}"].trigger('chat', id: @chat.id, user_id: current_user.id.to_s) unless Rails.env.test?
     end
     respond_to do |format|
       format.html do
