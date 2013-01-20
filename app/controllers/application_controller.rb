@@ -16,4 +16,10 @@ class ApplicationController < ActionController::Base
       :en
     end
   end
+
+  def authenticate_user!
+    unless user_signed_in?
+      redirect_to root_path
+    end
+  end
 end
