@@ -8,4 +8,8 @@ class Chat < ActiveRecord::Base
     order('id DESC')
     .limit(50)
   }
+
+  scope :participants, lambda{
+    where(type: ['Chat::Arrived', 'Chat::Left'])
+  }
 end

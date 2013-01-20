@@ -1,5 +1,5 @@
 <ul class="chats">
 <% chats.each do|chat| %>
-  <li><%= render 'chats/chat', chat: chat %></li>
+  <li><%= render 'chats/chat', chat: chat, room: room %></li>
 <% end %>
 </ul>

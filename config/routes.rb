@@ -5,5 +5,6 @@ Zoochat::Application.routes.draw do
     resource :participants, only: [:create, :destroy]
     resources :chats, only: [:index, :show, :create]
   end
+  resources :participants, only: [:index]
   root :to => 'rooms#index'
 end

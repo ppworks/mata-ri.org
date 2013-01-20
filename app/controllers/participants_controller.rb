@@ -2,6 +2,10 @@ class ParticipantsController < ApplicationController
   before_filter Filters::NestedResourcesFilter.new
   before_filter :authenticate_user!, only: [:destroy]
 
+  def index
+    @chats = Chat.participants.short_log
+  end
+
   def create
     name = params[:user_name]
     color = params[:color]

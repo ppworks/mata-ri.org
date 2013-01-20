@@ -3,5 +3,6 @@ ja:
     index:
       no_last_arrived_at: '-'
       no_last_left_at: '-'
+      participants: '参加履歴'
     show:
       arrive: '入室'
