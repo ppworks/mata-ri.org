@@ -1,23 +1,11 @@
 <%= form_tag room_chats_path(@room) do %>
   <div>
-    <%= text_field_tag :user_name %>
     <%= text_field_tag :content %>
-  </div>
-  <div>
-    <% @colors.each do|color| %>
-      <label>
-        <%= radio_button_tag :color, color %>
-        <span style="color: <%= color %>;">★</span>
-      </label>
-    <% end %>
   </div>
   <%= submit_tag t('.send') %>
 <% end %>
 
-<%= form_tag room_participants_path(@room) do %>
-  <div>
-    <%= text_field_tag :user_name %>
-  </div>
+<%= form_tag room_participants_path(@room), method: 'delete' do %>
   <%= submit_tag t('.leave') %>
 <% end %>
 

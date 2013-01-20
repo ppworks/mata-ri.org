@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable
 
-  attr_accessible :email, :image, :name, :password, :password_confirmation, :remember_me
+  attr_accessible :color, :email, :image, :name, :password, :password_confirmation, :remember_me
 
   has_many :connections
   has_many :providers, through: :connections

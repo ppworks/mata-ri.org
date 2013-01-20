@@ -1,5 +1,6 @@
 class ChatsController < ApplicationController
   before_filter Filters::NestedResourcesFilter.new
+  before_filter :authenticate_user!
 
   def index
     @room = @parent
@@ -36,8 +37,8 @@ class ChatsController < ApplicationController
   def create
     @room = @parent
     @room.chat_messages.create(
-      user_name: params[:user_name],
-      color: params[:color],
+      user_name: current_user.name,
+      color: current_user.color,
       content: params[:content],
     )
     redirect_to room_chats_path(@room)
