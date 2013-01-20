@@ -1,6 +1,6 @@
 ja:
   date:
-    long: "%m月%d日 %H:%M"
+    long: "%m月%d日 %H時%M分"
     short: "%m月%d日"
   time:
     long: "%H:%M:%s"
