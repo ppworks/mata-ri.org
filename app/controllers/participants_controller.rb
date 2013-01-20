@@ -29,6 +29,6 @@ class ParticipantsController < ApplicationController
     @room = @parent
     @chat = @room.chat_lefts.build(user_name: current_user.name, color: current_user.color) 
     @chat.save!
-    redirect_to room_path(@room)
+    redirect_to root_path
   end
 end
