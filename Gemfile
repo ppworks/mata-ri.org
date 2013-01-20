@@ -7,6 +7,7 @@ gem 'devise'
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'pusher'
+gem 'em-http-request'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'

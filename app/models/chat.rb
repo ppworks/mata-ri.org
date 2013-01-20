@@ -18,6 +18,6 @@ class Chat < ActiveRecord::Base
   private
 
   def send_to_pusher
-    Pusher["presence-chats_#{self.room_id}"].trigger('chat', id: self.id, user_id: self.user_id.to_s) unless Rails.env.test?
+    Pusher["presence-chats_#{self.room_id}"].trigger_async('chat', id: self.id, user_id: self.user_id.to_s) unless Rails.env.test?
   end
 end
