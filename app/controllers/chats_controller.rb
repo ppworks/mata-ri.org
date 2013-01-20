@@ -1,3 +1,4 @@
+require_dependency 'chat/message'
 class ChatsController < ApplicationController
   before_filter Filters::NestedResourcesFilter.new
   before_filter :authenticate_user!
@@ -32,7 +33,9 @@ class ChatsController < ApplicationController
 
   def show
     @room = @parent
-    @chat = @room.chats.find(params[:id])
+    @chat = Rails.cache.fetch("chat:#{params[:id]}") do
+      @room.chats.find(params[:id])
+    end
   end
 
   def create
@@ -43,6 +46,7 @@ class ChatsController < ApplicationController
         color: current_user.color,
         content: params[:content],
       )
+      Rails.cache.write("chat:#{@chat.id}", @chat)
     end
     respond_to do |format|
       format.html do
