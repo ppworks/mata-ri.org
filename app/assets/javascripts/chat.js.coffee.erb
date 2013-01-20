@@ -1,6 +1,9 @@
 jQuery ->
   unless $('body').hasClass('chats')
     return
+
+  $('input#content').focus()
+
   Pusher.channel_auth_endpoint = '/pusher/authentication'
   if '<%= Rails.env %>' isnt 'production'
     Pusher.log = (message) -> console.log(message)
