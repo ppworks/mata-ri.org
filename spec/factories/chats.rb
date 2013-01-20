@@ -7,4 +7,14 @@ FactoryGirl.define do
     color "MyString"
     type "Chat::Message"
   end
+
+  factory :chat_arrived, class: Chat::Arrived do
+    user_name 'test'
+    color '#333333'
+  end
+
+  factory :chat_left, class: Chat::Left do
+    user_name 'test'
+    color '#333333'
+  end
 end
