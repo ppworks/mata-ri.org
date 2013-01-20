@@ -5,10 +5,11 @@ en:
       send: 'Send'
       member:
         h1: 'Participants:'
-    chat_message:
-      name_html: '<span style="color:%{color};">%{name}</span>'
-      content_html: '「<span style="color:%{color};">%{content}</span>」'
-    chat_arrived:
-      name_html: '<span style="color:%{color};">「%{name}」</span>さんが'
-    chat_left:
-      name_html: '<span style="color:%{color};">「%{name}」</span>さんが'
+    chat:
+      message:
+        name_html: '<span style="color:%{color};">%{name}</span>'
+        content_html: '「<span style="color:%{color};">%{content}</span>」'
+      arrived:
+        name_html: '<span style="color:%{color};">「%{name}」</span>さんが'
+      left:
+        name_html: '<span style="color:%{color};">「%{name}」</span>さんが'

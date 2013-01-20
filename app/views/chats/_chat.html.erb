@@ -1,8 +1,1 @@
-<% case chat.type %>
-<% when 'Chat::Message' %>
-  <%= render 'chats/chat_message', chat: chat, room: room %>
-<% when 'Chat::Arrived' %>
-  <%= render 'chats/chat_arrived', chat: chat, room: room %>
-<% when 'Chat::Left' %>
-  <%= render 'chats/chat_left', chat: chat, room: room %>
-<% end %>
+<%= render "chats/#{chat.class.to_s.underscore}", chat: chat, room: room %>
