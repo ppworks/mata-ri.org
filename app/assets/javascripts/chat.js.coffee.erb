@@ -1,0 +1,41 @@
+jQuery ->
+  unless $('body').hasClass('chats')
+    return
+  pusher = new Pusher("<%=Pusher.key%>")
+  Pusher.channel_auth_endpoint = '/pusher/authentication'
+  if '<%= Rails.env %>' isnt 'production'
+    Pusher.log = (message) -> console.log(message)
+    true
+  room_id = $('body').attr('data-room_id')
+  user_id = $('body').attr('data-user_id')
+  channel = pusher.subscribe('presence-chats_' + room_id)
+  channel.bind 'chat', (data) ->
+    $.ajax(
+      url: '/rooms/' + room_id + '/chats/' + data.id,
+      success: (data) ->
+        $('ul[data-list="chats"]').prepend(data)
+        return
+    )
+    return
+  
+  channel.bind 'pusher:subscription_succeeded', (members) ->
+    members.each (data) ->
+      add_member(data.info)
+    return
+
+  channel.bind 'pusher:subscription_error', (data) ->
+    return
+    
+  channel.bind 'pusher:member_added', (data) ->
+    add_member data.info
+    return
+  
+  channel.bind 'pusher:member_removed', (data) ->
+    $('ul.member').find('[data-class="chat_user"][data-id="' + data.info.id.toString() + '"]').closest('li').remove()
+    return
+
+  add_member = (member) ->
+    $('ul.member').find('[data-class="chat_user"][data-id="' + member.id.toString() + '"]').closest('li').remove()
+    $('ul.member').append('<li><span style="color: ' + member.color + ';" data-class="chat_user" data-id="' + member.id.toString() + '">' + member.name + '</span></li>')
+
+

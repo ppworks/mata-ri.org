@@ -1,6 +1,7 @@
 class ChatsController < ApplicationController
   before_filter Filters::NestedResourcesFilter.new
   before_filter :authenticate_user!
+  layout Proc.new { |controller| controller.request.xhr? ? nil : 'application' }
 
   def index
     @room = @parent
@@ -36,11 +37,21 @@ class ChatsController < ApplicationController
 
   def create
     @room = @parent
-    @room.chat_messages.create(
-      user_name: current_user.name,
-      color: current_user.color,
-      content: params[:content],
-    )
-    redirect_to room_chats_path(@room)
+    begin
+      @chat = @room.chat_messages.create!(
+        user_name: current_user.name,
+        color: current_user.color,
+        content: params[:content],
+      )
+      Pusher["presence-chats_#{@room.id}"].trigger('chat', id: @chat.id, user_id: current_user.id.to_s) unless Rails.env.test?
+    end
+    respond_to do |format|
+      format.html do
+        redirect_to room_chats_path(@room)
+      end
+      format.js do
+        render :create
+      end
+    end
   end
 end

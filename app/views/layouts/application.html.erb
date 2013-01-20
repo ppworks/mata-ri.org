@@ -4,9 +4,14 @@
   <title>Zoochat</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
+  <%= render 'shared/pusher' %>
   <%= csrf_meta_tags %>
 </head>
-<body>
+<body
+  class="<%= yield :body_class %>"
+  data-room_id="<%= yield :body_data_room_id %>"
+  data-user_id="<%= yield :body_data_user_id %>"
+>
 
 <%= yield %>
 

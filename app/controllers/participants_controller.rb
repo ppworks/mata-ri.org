@@ -21,6 +21,7 @@ class ParticipantsController < ApplicationController
           sign_in(user)
         end
       end
+      Pusher["presence-chats_#{@room.id}"].trigger('chat', id: @chat.id, user_id: current_user.id.to_s) unless Rails.env.test?
       redirect_to room_chats_path(@room)
     rescue => e
       logger.error e.to_yaml
@@ -33,6 +34,7 @@ class ParticipantsController < ApplicationController
     @room = @parent
     @chat = @room.chat_lefts.build(user_name: current_user.name, color: current_user.color) 
     @chat.save!
+    Pusher["presence-chats_#{@room.id}"].trigger('chat', id: @chat.id, user_id: current_user.id.to_s) unless Rails.env.test?
     redirect_to root_path
   end
 end

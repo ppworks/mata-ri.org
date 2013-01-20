@@ -35,6 +35,12 @@ Zoochat::Application.configure do
   # Print deprecation notices to the stderr
   config.active_support.deprecation = :stderr
 
+  # guard-rails-assets
+  config.assets.prefix = 'assets-test'
+
+  # capybara
+  config.action_controller.asset_host = "file://#{::Rails.root}/public"
+
   # mailer
   config.action_mailer.default_url_options = { :host => 'localhost' }
   ActionMailer::Base.delivery_method = :test
