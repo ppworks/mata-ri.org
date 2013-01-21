@@ -29,6 +29,7 @@ class Chat < ActiveRecord::Base
 
     Room.all.each do|room|
       next if room.id == self.room_id
+      next if room.members_count == 0
       self.class.create!(
         user_id: self.user_id,
         user_name: self.user_name,

@@ -4,8 +4,11 @@ class RoomsController < ApplicationController
     pusher_info = Pusher.get('/channels', {filter_by_prefix: 'presence-chats_', info: 'user_count'})
     @rooms.each do |room|
       room_info = pusher_info[:channels]["presence-chats_#{room.id}"]
-      next unless room_info
-      room.members_count = room_info['user_count']
+      if room_info
+        room.update_column(:members_count, room_info['user_count'])
+      else
+        room.update_column(:members_count, 0)
+      end
     end
   end
 
