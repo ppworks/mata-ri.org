@@ -10,6 +10,7 @@
     <th><%= t('activerecord.attributes.room.name') %></th>
     <th><%= t('activerecord.attributes.room.last_arrived_at') %></th>
     <th><%= t('activerecord.attributes.room.last_left_at') %></th>
+    <th><%= t('activerecord.attributes.room.members_count') %></th>
   </thead>
   <tbody>
     <% @rooms.each do|room| %>
@@ -28,6 +29,9 @@
           <% else %>
             <%= t('.no_last_left_at') %>
           <% end %>
+        </td>
+        <td class="center">
+          <%= room.members_count %>
         </td>
       </tr>
     <% end %>
