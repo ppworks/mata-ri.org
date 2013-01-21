@@ -5,6 +5,7 @@ ja:
       send: '発言'
       member:
         h1: '参加者:'
+      content_placeholder: '発言内容'
     chat:
       message:
         name_html: '<span style="color:%{color};">%{name}</span>'

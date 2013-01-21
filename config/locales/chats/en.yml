@@ -5,6 +5,7 @@ en:
       send: 'Send'
       member:
         h1: 'Participants:'
+      content_placeholder: 'Content'
     chat:
       message:
         name_html: '<span style="color:%{color};">%{name}</span>'

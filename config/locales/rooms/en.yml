@@ -6,3 +6,4 @@ en:
       participants: 'Participants histories'
     show:
       arrive: 'Enter'
+      content_placeholder: 'Enter your name'

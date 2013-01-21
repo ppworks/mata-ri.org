@@ -3,7 +3,7 @@
 
 <%= form_tag room_participants_path(@room) do |form| %>
   <div>
-    <%= text_field_tag :user_name, current_user.try(:name) %>
+    <%= text_field_tag :user_name, current_user.try(:name), placeholder: t('.content_placeholder') %>
   </div>
   <div>
     <% @colors.each do|color| %>
