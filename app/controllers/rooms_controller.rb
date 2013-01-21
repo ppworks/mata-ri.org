@@ -1,6 +1,7 @@
 class RoomsController < ApplicationController
   def index
     @rooms = Room.order('id ASC').all.to_a
+    return if Rails.env.test?
     pusher_info = Pusher.get('/channels', {filter_by_prefix: 'presence-chats_', info: 'user_count'})
     @rooms.each do |room|
       room_info = pusher_info[:channels]["presence-chats_#{room.id}"]
