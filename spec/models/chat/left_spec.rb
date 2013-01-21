@@ -4,7 +4,7 @@ describe Chat::Left do
   ancestors_should_include [ActiveRecord::Base, Chat]
 
   let(:room) { FactoryGirl.create(:room1) }
-  let!(:chat) { FactoryGirl.build(:chat_left, room_id: room.id) }
+  let!(:chat) { FactoryGirl.build(:chat_left, room_id: room.id, origin_room_id: room.id) }
 
   describe "room last_left_at change from nil to 'last arrvied time'" do
     it do
