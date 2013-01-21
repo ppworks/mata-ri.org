@@ -1,6 +1,6 @@
 <div class="arrived">
   <%= t('.name_html', name: chat.user_name, color: chat.color) %>
-  <%= chat.room.name unless chat.room_id == room.try(:id) %>
+  <%= chat.origin_room.name unless chat.origin_room_id == room.try(:id) %>
   <span class="content"><%= chat.content %></span>
   <time><%= chat.created_at.strftime(t('date.long')) %></time>
 </div>

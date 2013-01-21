@@ -6,3 +6,4 @@ ja:
       participants: '参加履歴'
     show:
       arrive: '入室'
+      content_placeholder: 'お名前を入力して下さい'
