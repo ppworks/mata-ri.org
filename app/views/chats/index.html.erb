@@ -1,6 +1,10 @@
 <% content_for :body_class, 'chats ' %>
 <% content_for :body_data_room_id, @room.id.to_s %>
 <% content_for :body_data_user_id, current_user.id.to_s %>
+<%= form_tag room_participants_path(@room), method: 'delete', id: 'leave' do %>
+  <%= submit_tag t('.leave') %>
+<% end %>
+<hr />
 <%= form_tag room_chats_path(@room), remote: true, id: 'new_chat' do %>
   <%= text_field_tag :content, nil, class: 'auto_clear' %>
   <%= submit_tag t('.send') %>
@@ -11,7 +15,3 @@
   <ul class="member"></ul>
 </section>
 <%= render 'chats/chats', chats: @chats, room: @room %>
-<hr />
-<%= form_tag room_participants_path(@room), method: 'delete', id: 'leave' do %>
-  <%= submit_tag t('.leave') %>
-<% end %>
