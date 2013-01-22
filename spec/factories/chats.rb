@@ -17,4 +17,10 @@ FactoryGirl.define do
     user_name 'test'
     color '#333333'
   end
+
+  factory :chat_move, class: Chat::Move do
+    user_name 'test'
+    color '#333333'
+    content '2'
+  end
 end
