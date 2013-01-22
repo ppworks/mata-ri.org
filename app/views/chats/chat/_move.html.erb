@@ -1,0 +1,13 @@
+<div class="move">
+  <%= t('.name_html', name: chat.user_name, color: chat.color) %>
+  <span class="content">
+    <% if chat.origin? %>
+      <%= t('.origin.content_html', room_name: chat.origin_room.name, target_room_name: chat.target_room.name) %>
+    <% elsif chat.target? %>
+      <%= t('.target.content_html', room_name: chat.origin_room.name, target_room_name: chat.target_room.name) %>
+    <% else %>
+      <%= t('.other.content_html', room_name: chat.origin_room.name, target_room_name: chat.target_room.name) %>
+    <% end %>
+  </span>
+  <time><%= chat.created_at.strftime(t('date.long')) %></time>
+</div>

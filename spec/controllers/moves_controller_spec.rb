@@ -10,7 +10,7 @@ describe MovesController do
     let(:target_room_id) { 'test' }
     before do
       sign_in user
-      post :create, room_id: room1.id, target_room_id: room2.id 
+      post :create, room_id: room1.id, chat: {target_room_id: room2.id}
     end
     it { should redirect_to room_chats_path(room2) }
   end

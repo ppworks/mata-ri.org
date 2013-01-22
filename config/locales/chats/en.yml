@@ -1,6 +1,7 @@
 en:
   chats:
     index:
+      move: 'Move'
       leave: 'Leave'
       send: 'Send'
       member:
@@ -14,3 +15,11 @@ en:
         name_html: '<span style="color:%{color};">「%{name}」</span>さんが'
       left:
         name_html: '<span style="color:%{color};">「%{name}」</span>さんが'
+      move:
+        name_html: '<span style="color:%{color};">「%{name}」</span>さんが'
+        origin:
+          content_html: '%{target_room_name}へ<span class="action">移動</span>しました'
+        target:
+          content_html: '%{room_name}から<span class="action">移動</span>してきました'
+        other:
+          content_html: '%{room_name}から%{target_room_name}へ<span class="action">移動</span>'
