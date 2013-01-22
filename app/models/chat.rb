@@ -17,6 +17,10 @@ class Chat < ActiveRecord::Base
 
   after_create :send_to_pusher
 
+  def origin?
+    self.origin_room_id == self.room_id
+  end
+
   private
 
   def send_to_pusher
@@ -30,13 +34,17 @@ class Chat < ActiveRecord::Base
     Room.all.each do|room|
       next if room.id == self.room_id
       next if room.members_count == 0
-      self.class.create!(
-        user_id: self.user_id,
-        user_name: self.user_name,
-        color: self.color,
-        room_id: room.id,
-        origin_room_id: self.origin_room_id,
-      ) 
+      create_for_other_room(room)
     end
+  end
+
+  def create_for_other_room(room)
+    self.class.create!(
+      user_id: self.user_id,
+      user_name: self.user_name,
+      color: self.color,
+      room_id: room.id,
+      origin_room_id: self.origin_room_id,
+    ) 
   end
 end
