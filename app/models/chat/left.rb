@@ -1,7 +1,7 @@
 class Chat::Left < Chat
   after_initialize :set_default_values
-  after_create :update_room
   after_create :send_other_rooms
+  after_create :update_room
 
   private
   def set_default_values
