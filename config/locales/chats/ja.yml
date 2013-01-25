@@ -2,11 +2,13 @@ ja:
   chats:
     index:
       move: '移動'
+      call: '語りかけ'
       leave: '退室'
       send: '発言'
       member:
         h1: '参加者:'
       content_placeholder: '発言内容'
+      call_content_placeholder: '語りかけ内容'
     chat:
       message:
         name_html: '<span style="color:%{color};">%{name}</span>'
@@ -23,3 +25,9 @@ ja:
           content_html: '%{room_name}から<span class="action">移動</span>してきました'
         other:
           content_html: '%{room_name}から%{target_room_name}へ<span class="action">移動</span>'
+      call:
+        name_html: '<span style="color:%{color};">%{name}</span>'
+        origin:
+          content_html: '%{room_name}へ「<span style="color:%{color};">%{content}</span>」'
+        target:
+          content_html: '%{room_name}から「<span style="color:%{color};">%{content}</span>」'

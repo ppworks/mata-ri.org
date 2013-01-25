@@ -5,6 +5,7 @@ Zoochat::Application.routes.draw do
     resource :participants, only: [:create, :destroy]
     resources :chats, only: [:index, :show, :create]
     resource :moves, only: [:create]
+    resource :calls, only: [:create]
   end
   resources :participants, only: [:index]
   post 'pusher/authentication' => 'pushers#authentication'
