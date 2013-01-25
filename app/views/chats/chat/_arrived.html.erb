@@ -1,6 +1,14 @@
 <div class="arrived">
-  <%= t('.name_html', name: chat.user_name, color: chat.color) %>
-  <%= chat.origin_room.name unless chat.origin_room_id == room.try(:id) %>
-  <span class="content"><%= t('.content_html') %></span>
+  <i class=" icon-bullhorn"></i>
+  <span style="color: <%= chat.color %>"><%= chat.user_name %></span>
+  <span class="content">
+    <% if linked_room_name %>
+      <%= t('.linked_room.content_html', room_id: chat.origin_room_id, room_name: chat.origin_room.name) %>
+    <% elsif chat.origin? %>
+      <%= t('.origin.content_html') %>
+    <% else %>
+      <%= t('.other.content_html', room_name: chat.origin_room.name) %>
+    <% end %>
+  </span>
   <time><%= chat.created_at.strftime(t('date.long')) %></time>
 </div>

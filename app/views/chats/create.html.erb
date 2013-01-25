@@ -1,1 +1,1 @@
-$('ul[data-list="chats"]').prepend('<li><%= j render 'chats/chat', chat: @chat, room: @room %></li>');
+$('ul[data-list="chats"]').prepend('<li><%= j render 'chats/chat', chat: @chat, linked_room_name: false %></li>');

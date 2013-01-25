@@ -1,5 +1,5 @@
 <div class="call">
-  <%= t('.name_html', name: chat.user_name, color: chat.color) %>
+  <span style="color: <%= chat.color %>"><%= chat.user_name %></span>
   <span class="content">
     <% if chat.origin? %>
       <%= t('.origin.content_html', room_name: chat.target_room.name, content: chat.content, color: chat.color) %>

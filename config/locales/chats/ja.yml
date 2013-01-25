@@ -11,25 +11,30 @@ ja:
       call_content_placeholder: '語りかけ内容'
     chat:
       message:
-        name_html: '<span style="color:%{color};">%{name}</span>'
         content_html: '「<span style="color:%{color};">%{content}</span>」'
       arrived:
-        name_html: '<span style="color:%{color};">「%{name}」</span>さんが'
-        content_html: '<span class="action">入室！</span>'
-      left:
-        name_html: '<span style="color:%{color};">「%{name}」</span>さんが'
-        content_html: '<span class="action">退室！</span>'
-      move:
-        name_html: '<span style="color:%{color};">「%{name}」</span>さんが'
+        linked_room:
+          content_html: 'さんが<a href="/rooms/%{room_id}">%{room_name}</a>へ<span class="action">入室！</span>'
         origin:
-          content_html: '%{target_room_name}へ<span class="action">移動</span>しました'
-        target:
-          content_html: '%{room_name}から<span class="action">移動</span>してきました'
+          content_html: 'さんが<span class="action">入室！</span>'
         other:
-          content_html: '%{room_name}から%{target_room_name}へ<span class="action">移動</span>'
-      call:
-        name_html: '<span style="color:%{color};">%{name}</span>'
+          content_html: 'さんが%{room_name}へ<span class="action">入室！</span>'
+      left:
+        linked_room:
+          content_html: 'さんが<a href="/rooms/%{room_id}">%{room_name}</a>から<span class="action">退室！</span>'
         origin:
-          content_html: '%{room_name}へ「<span style="color:%{color};">%{content}</span>」'
+          content_html: 'さんが<span class="action">退室！</span>'
+        other:
+          content_html: 'さんが%{room_name}から<span class="action">退室！</span>'
+      move:
+        origin:
+          content_html: 'さんが%{target_room_name}へ<span class="action">移動</span>しました'
         target:
-          content_html: '%{room_name}から「<span style="color:%{color};">%{content}</span>」'
+          content_html: 'さんが%{room_name}から<span class="action">移動</span>してきました'
+        other:
+          content_html: 'さんが%{room_name}から%{target_room_name}へ<span class="action">移動</span>'
+      call:
+        origin:
+          content_html: '(%{room_name}へ)「<span style="color:%{color};">%{content}</span>」'
+        target:
+          content_html: '(%{room_name}から)「<span style="color:%{color};">%{content}</span>」'

@@ -1,7 +1,7 @@
 <ul class="chats" data-list="chats">
 <% chats.each do|chat| %>
   <li>
-    <%= render 'chats/chat', chat: chat, room: room %>
+    <%= render 'chats/chat', chat: chat, linked_room_name: linked_room_name %>
   </li>
 <% end %>
 </ul>
