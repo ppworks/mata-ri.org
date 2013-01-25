@@ -8,7 +8,7 @@ class Chat::Call < Chat
 
     Room.all.each do|room|
       next if room.id == self.room_id
-      next if room.id == self.target_room_id
+      next if room.id != self.target_room_id
       create_for_other_room(room)
     end
   end

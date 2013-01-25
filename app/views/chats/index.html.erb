@@ -5,6 +5,11 @@
   <%= collection_select(:chat, :target_room_id, @room.other_room_list, :id, :name) %>
   <%= submit_tag t('.move') %>
 <% end %>
+<%= form_tag room_calls_path(@room), method: 'create', id: 'move' do %>
+  <%= collection_select(:chat, :target_room_id, @room.other_room_list, :id, :name) %>
+  <%= text_field_tag :content, nil, class: 'auto_clear', placeholder: t('.call_content_placeholder') %>
+  <%= submit_tag t('.call') %>
+<% end %>
 <%= form_tag room_participants_path(@room), method: 'delete', id: 'leave' do %>
   <%= submit_tag t('.leave') %>
 <% end %>
