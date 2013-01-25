@@ -1,16 +1,5 @@
 class Chat::Move < Chat
   after_create :send_other_rooms
-  def target_room_id
-    self.content.try(:to_i)
-  end
-
-  def target_room
-    Room.find(self.target_room_id)
-  end
-
-  def target?
-    self.target_room_id == self.room_id
-  end
 
   private
 
@@ -32,7 +21,7 @@ class Chat::Move < Chat
       color: self.color,
       room_id: room.id,
       origin_room_id: self.origin_room_id,
-      content: self.content,
+      target_room_id: self.target_room_id,
     ) 
   end
 end

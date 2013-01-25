@@ -1,9 +1,10 @@
 class Chat < ActiveRecord::Base
-  attr_accessible :color, :content, :origin_room_id, :room_id, :type, :user_id, :user_name
-  validates_presence_of :user_name, :content
+  attr_accessible :color, :content, :origin_room_id, :room_id, :target_room_id, :type, :user_id, :user_name
+  validates_presence_of :user_name
 
   belongs_to :room
   belongs_to :origin_room, class_name: 'Room'
+  belongs_to :target_room, class_name: 'Room'
 
   scope :short_log, lambda{
     order('id DESC')
@@ -19,6 +20,10 @@ class Chat < ActiveRecord::Base
 
   def origin?
     self.origin_room_id == self.room_id
+  end
+
+  def target?
+    self.target_room_id == self.room_id
   end
 
   private

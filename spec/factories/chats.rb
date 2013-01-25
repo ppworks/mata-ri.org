@@ -21,6 +21,6 @@ FactoryGirl.define do
   factory :chat_move, class: Chat::Move do
     user_name 'test'
     color '#333333'
-    content '2'
+    target_room_id '2'
   end
 end

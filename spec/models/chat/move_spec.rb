@@ -10,6 +10,6 @@ describe Chat::Move do
   describe '#target_room_id' do
     subject { chat }
     it { subject.target_room_id.should be_instance_of Fixnum }
-    it { subject.target_room.should == room2 }
+    it { subject.target_room.id.should == room2.id }
   end
 end

@@ -9,7 +9,7 @@ class MovesController < ApplicationController
       user_id: current_user.id,
       user_name: current_user.name,
       color: current_user.color,
-      content: @target_room.id,
+      target_room_id: @target_room.id,
     )
     redirect_to room_chats_path(@target_room)
   end
