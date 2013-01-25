@@ -15,8 +15,10 @@ ja:
         content_html: '「<span style="color:%{color};">%{content}</span>」'
       arrived:
         name_html: '<span style="color:%{color};">「%{name}」</span>さんが'
+        content_html: '<span class="action">入室！</span>'
       left:
         name_html: '<span style="color:%{color};">「%{name}」</span>さんが'
+        content_html: '<span class="action">退室！</span>'
       move:
         name_html: '<span style="color:%{color};">「%{name}」</span>さんが'
         origin:

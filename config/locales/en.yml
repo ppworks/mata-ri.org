@@ -5,8 +5,3 @@ en:
   time:
     long: "%H:%M:%s"
     short: "%H:%M"
-  chat:
-    arrived:
-      content: 'arrived'
-    left:
-      content: 'left'

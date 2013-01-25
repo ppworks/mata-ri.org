@@ -5,8 +5,3 @@ ja:
   time:
     long: "%H:%M:%s"
     short: "%H:%M"
-  chat:
-    arrived:
-      content: '入室！'
-    left:
-      content: '退室！'

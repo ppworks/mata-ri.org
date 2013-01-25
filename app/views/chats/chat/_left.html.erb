@@ -1,6 +1,6 @@
 <div class="left">
   <%= t('.name_html', name: chat.user_name, color: chat.color) %>
   <%= chat.origin_room.name unless chat.origin_room_id == room.try(:id) %>
-  <span class="content"><%= chat.content %></span>
+  <span class="content"><%= t('.content_html') %></span>
   <time><%= chat.created_at.strftime(t('date.long')) %></time>
 </div>
