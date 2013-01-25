@@ -1,4 +1,5 @@
 class Chat::Message < Chat
+  validates_presence_of :content
   before_create :set_origin_room_id
 
   private
