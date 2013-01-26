@@ -5,3 +5,20 @@ en:
   time:
     long: "%H:%M:%s"
     short: "%H:%M"
+  chat:
+    styles:
+      -
+        - 'extra large'
+        - 'x-large'
+      -
+        - 'large'
+        - 'large'
+      -
+        - 'normal'
+        - 'normal'
+      -
+        - 'extra small'
+        - 'x-small'
+      -
+        - 'small'
+        - 'small'

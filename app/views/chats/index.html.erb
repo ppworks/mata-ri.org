@@ -16,6 +16,7 @@
 <hr />
 <%= form_tag room_chats_path(@room), remote: true, id: 'new_chat' do %>
   <%= text_field_tag :content, nil, class: 'auto_clear', placeholder: t('.content_placeholder') %>
+  <%= select_tag :style, options_for_select(Chat.styles, :normal) %>
   <%= submit_tag t('.send') %>
 <% end %>
 

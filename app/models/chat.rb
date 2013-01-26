@@ -1,5 +1,5 @@
 class Chat < ActiveRecord::Base
-  attr_accessible :color, :content, :origin_room_id, :room_id, :target_room_id, :type, :user_id, :user_name
+  attr_accessible :color, :content, :origin_room_id, :room_id, :style, :target_room_id, :type, :user_id, :user_name
   validates_presence_of :user_name
 
   belongs_to :room
@@ -17,6 +17,12 @@ class Chat < ActiveRecord::Base
   }
 
   after_create :send_to_pusher
+
+  class << self
+    def styles
+      I18n.t('chat.styles')
+    end
+  end
 
   def origin?
     self.origin_room_id == self.room_id
