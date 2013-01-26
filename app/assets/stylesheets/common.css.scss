@@ -99,6 +99,29 @@ ul.chats {
       }
     }
 
+    div.message {
+      &.x-small {
+        >span {
+          font-size: 0.5em;
+        }
+      }
+      &.small {
+        >span {
+          font-size: 0.8em;
+        }
+      }
+      &.large {
+        >span {
+          font-size: 1.5em;
+        }
+      }
+      &.x-large {
+        >span {
+          font-size: 2.0em;
+        }
+      }
+    }
+
     time {
       color: #e8b080;
       font-size: 0.8em;

@@ -5,3 +5,20 @@ ja:
   time:
     long: "%H:%M:%s"
     short: "%H:%M"
+  chat:
+    styles:
+      -
+        - '特大'
+        - 'x-large'
+      -
+        - '大きい'
+        - 'large'
+      -
+        - '普通'
+        - 'normal'
+      -
+        - '小さい'
+        - 'small'
+      -
+        - '微小'
+        - 'x-small'

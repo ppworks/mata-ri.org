@@ -46,6 +46,7 @@ class ChatsController < ApplicationController
         user_name: current_user.name,
         color: current_user.color,
         content: params[:content],
+        style: params[:style],
       )
       Rails.cache.write("chat:#{@chat.id}", @chat)
     end
