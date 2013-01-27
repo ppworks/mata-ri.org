@@ -101,22 +101,22 @@ ul.chats {
 
     div.message {
       &.x-small {
-        >span {
+        >.content>span {
           font-size: 0.5em;
         }
       }
       &.small {
-        >span {
+        >.content>span {
           font-size: 0.8em;
         }
       }
       &.large {
-        >span {
+        >.content>span {
           font-size: 1.5em;
         }
       }
       &.x-large {
-        >span {
+        >.content>span {
           font-size: 2.0em;
         }
       }
