@@ -1,6 +1,7 @@
 class Chat < ActiveRecord::Base
   attr_accessible :color, :content, :origin_room_id, :room_id, :style, :target_room_id, :type, :user_id, :user_name
   validates_presence_of :user_name
+  validates_inclusion_of :style, in: lambda {|chat| chat.class.style_keys}, if: lambda {|chat| chat.style.present?}
 
   belongs_to :room
   belongs_to :origin_room, class_name: 'Room'
@@ -45,6 +46,10 @@ class Chat < ActiveRecord::Base
     
     def styles
       I18n.t('chat.styles')
+    end
+
+    def style_keys
+      self.styles.map{|s|s[1]}
     end
   end
 
