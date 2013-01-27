@@ -2,6 +2,9 @@ require 'spec_helper'
 
 describe Room do
   ancestors_should_include [ActiveRecord::Base]
+  before do
+    Room.delete_all
+  end
 
   4.times do |i|
     room_key = "room#{i + 1}".to_sym

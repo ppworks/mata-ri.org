@@ -5,7 +5,7 @@ describe Chat::Move do
 
   let!(:room1) { FactoryGirl.create(:room1) }
   let!(:room2) { FactoryGirl.create(:room2) }
-  let!(:chat) { FactoryGirl.build(:chat_move, room_id: room1.id, origin_room_id: room1.id) }
+  let!(:chat) { FactoryGirl.build(:chat_move, room_id: room1.id, target_room_id: room2.id) }
 
   describe '#target_room_id' do
     subject { chat }
