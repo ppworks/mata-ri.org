@@ -4,7 +4,7 @@ class PushersController < ApplicationController
   def authentication
     res = Pusher[params[:channel_name]].authenticate(
       params[:socket_id],
-      user_id: current_user.try(:id) || Digest::SHA1.hexdigest(Time.current.to_f.to_s),
+      user_id: current_user.try(:id) || read_only_member_id,
       user_info: {
         id: current_user.try(:id),
         name: current_user.try(:name),
@@ -13,5 +13,10 @@ class PushersController < ApplicationController
       },
     )
     render json: res
+  end
+
+  private
+  def read_only_member_id
+    Digest::SHA1.hexdigest(Time.current.to_f.to_s)
   end
 end
