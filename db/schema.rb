@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130126152753) do
+ActiveRecord::Schema.define(:version => 20130127080448) do
 
   create_table "chats", :force => true do |t|
     t.integer  "room_id",        :null => false
@@ -44,6 +44,12 @@ ActiveRecord::Schema.define(:version => 20130126152753) do
 
   add_index "connections", ["provider_id", "user_key"], :name => "idx_pi_uk_on_connections"
   add_index "connections", ["user_id"], :name => "idx_ui_on_connections"
+
+  create_table "fortune_slips", :force => true do |t|
+    t.text     "content",    :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "providers", :force => true do |t|
     t.string   "name",       :null => false
