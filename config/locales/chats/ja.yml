@@ -6,10 +6,14 @@ ja:
       leave: '退室'
       fortune_slip: 'おみくじを引く'
       send: '発言'
-      member:
-        h1: '参加者:'
       content_placeholder: '発言内容'
       call_content_placeholder: '語りかけ内容'
+    status:
+      member:
+        h1: '参加者:'
+      rom:
+        h1: 'Rom中:'
+        count: '人'
     chat:
       message:
         content_html: '「<span style="color:%{color};">%{content}</span>」'

@@ -23,8 +23,5 @@
   <%= submit_tag t('.send') %>
 <% end %>
 
-<section class="member">
-  <h1><%= t '.member.h1' %></h1>
-  <ul class="member"></ul>
-</section>
+<%= render 'chats/status' %>
 <%= render 'chats/chats', chats: @chats, linked_room_name: false %>

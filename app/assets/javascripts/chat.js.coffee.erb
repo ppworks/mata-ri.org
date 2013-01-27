@@ -26,25 +26,44 @@ jQuery ->
       duration:0
       interval:700
     return
-  
+
+  rom_count = 0
   channel.bind 'pusher:subscription_succeeded', (members) ->
     members.each (data) ->
-      add_member(data.info)
+      if data.info.path.match /chats$/
+        add_member(data.info)
+      else
+        rom_count += 1
+    update_rom()
     return
 
   channel.bind 'pusher:subscription_error', (data) ->
     return
     
   channel.bind 'pusher:member_added', (data) ->
-    add_member data.info
+    if data.info.path.match /chats$/
+      add_member data.info
+    else
+      rom_count += 1
+      update_rom()
     return
   
   channel.bind 'pusher:member_removed', (data) ->
-    $('ul.member').find('[data-class="chat_user"][data-id="' + data.info.id.toString() + '"]').closest('li').remove()
+    if data.info.path.match /chats$/
+      remove_member data.info
+    else
+      rom_count -= 1
+      update_rom()
     return
 
   add_member = (member) ->
+    remove_member(member)
     $('ul.member').find('[data-class="chat_user"][data-id="' + member.id.toString() + '"]').closest('li').remove()
     $('ul.member').append('<li><span style="color: ' + member.color + ';" data-class="chat_user" data-id="' + member.id.toString() + '">' + member.name + '</span></li>')
 
+  remove_member = (member) ->
+    $('ul.member').find('[data-class="chat_user"][data-id="' + member.id.toString() + '"]').closest('li').remove()
+
+  update_rom = () ->
+    $('section.rom .count').html(rom_count.toString())
 

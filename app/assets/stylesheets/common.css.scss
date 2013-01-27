@@ -67,6 +67,18 @@ section.member {
   }
 }
 
+section.rom {
+  color: #666666;
+  font-size: 0.8em;
+  margin-top: 5px;
+  * {
+    display: inline-block;
+  }
+  .count {
+    font-weight: bold;
+  }
+}
+
 ul.chats {
   margin: 15px 0 0 0;
   >li {
