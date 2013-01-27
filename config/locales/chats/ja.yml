@@ -4,6 +4,7 @@ ja:
       move: '移動'
       call: '語りかけ'
       leave: '退室'
+      fortune_slip: 'おみくじを引く'
       send: '発言'
       member:
         h1: '参加者:'
@@ -38,3 +39,6 @@ ja:
           content_html: '(%{room_name}へ)「<span style="color:%{color};">%{content}</span>」'
         target:
           content_html: '(%{room_name}から)「<span style="color:%{color};">%{content}</span>」'
+      fortune_slip:
+        name: 'おみくじ'
+        content_html: '「<span style="color:%{color};">%{name}</span>さんの運勢は、、、"%{content}"」'

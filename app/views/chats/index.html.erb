@@ -10,6 +10,9 @@
   <%= text_field_tag :content, nil, class: 'auto_clear', placeholder: t('.call_content_placeholder') %>
   <%= submit_tag t('.call') %>
 <% end %>
+<%= form_tag room_fortune_slips_path(@room), method: 'create', id: 'fortune_slip' do %>
+  <%= submit_tag t('.fortune_slip') %>
+<% end %>
 <%= form_tag room_participants_path(@room), method: 'delete', id: 'leave' do %>
   <%= submit_tag t('.leave') %>
 <% end %>
