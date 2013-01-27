@@ -6,6 +6,7 @@ Zoochat::Application.routes.draw do
     resources :chats, only: [:index, :show, :create]
     resource :moves, only: [:create]
     resource :calls, only: [:create]
+    resource :fortune_slips, only: [:create]
   end
   resources :participants, only: [:index]
   post 'pusher/authentication' => 'pushers#authentication'

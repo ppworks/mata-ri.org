@@ -9,6 +9,7 @@ class Room < ActiveRecord::Base
   has_many :chat_messages, class_name: 'Chat::Message'
   has_many :chat_moves, class_name: 'Chat::Move'
   has_many :chat_calls, class_name: 'Chat::Call'
+  has_many :chat_fortune_slips, class_name: 'Chat::FortuneSlip'
 
   def other_room_list
     Room.order('id ASC').all.to_a.select{|room| room.id != self.id}
