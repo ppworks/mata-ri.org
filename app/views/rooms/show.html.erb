@@ -1,3 +1,4 @@
+<% content_for :body_class, 'chats ' %>
 <% content_for :body_data_room_id, @room.id.to_s %>
 <h1><%= @room.name %></h1>
 
@@ -16,4 +17,5 @@
   <%= submit_tag t('.arrive') %>
 <% end %>
 
+<%= render 'chats/status' %>
 <%= render 'chats/chats', chats: @chats, linked_room_name: false %>

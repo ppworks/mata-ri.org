@@ -1,7 +1,7 @@
 require_dependency 'chat/message'
 class ChatsController < ApplicationController
   before_filter Filters::NestedResourcesFilter.new
-  before_filter :authenticate_user!
+  before_filter :authenticate_user!, except: [:show]
   layout Proc.new { |controller| controller.request.xhr? ? nil : 'application' }
 
   def index
