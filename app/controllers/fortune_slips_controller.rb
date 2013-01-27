@@ -1,0 +1,2 @@
+class FortuneSlipsController < ApplicationController
+end
