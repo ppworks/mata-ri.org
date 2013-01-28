@@ -13,10 +13,7 @@ class User < ActiveRecord::Base
   has_many :connections, dependent: :delete_all
   has_many :providers, through: :connections
 
-
-  def nick_name
-    name.sub(/@|＠.*/, '')
-  end
+  before_validation :set_base_name
 
   def content_head
     return '' unless self.content
@@ -31,9 +28,13 @@ class User < ActiveRecord::Base
 
   private
   def name_is_valid
-    user = User::Reserved.where(name: self.nick_name).first
+    user = User::Reserved.where(base_name: self.base_name).first
     if user.present? && user.id != self.id
       errors.add(:name, I18n.t('activerecord.errors.models.user.attributes.name.reserved'))
     end
+  end
+
+  def set_base_name
+    self.base_name = name.sub(/@|＠.*/, '')
   end
 end
