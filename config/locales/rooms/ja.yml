@@ -4,6 +4,7 @@ ja:
       no_last_arrived_at: '-'
       no_last_left_at: '-'
       participants: '参加履歴'
+      users: 'みんなのプロフィール'
     show:
       arrive: '入室'
       content_placeholder: 'お名前を入力して下さい'

@@ -1,0 +1,15 @@
+<h1><%= t('rooms.index.users') %></h1>
+
+<ul class="users">
+<% @users.each do |user| %>
+  <li>
+    <section>
+      <h2><%= link_to user.name, user_path(user) %></h2>
+      <div class="content"><%= user.content_head %></div>
+      <time><%= user.updated_at.strftime(t('date.long')) %></time>
+    </section>
+  </li>
+<% end %>
+</ul>
+
+<%= paginate @users %>

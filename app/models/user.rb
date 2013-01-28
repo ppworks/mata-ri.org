@@ -1,7 +1,7 @@
 # coding: utf-8
 class User < ActiveRecord::Base
   include Providers::Facebook
-  devise :database_authenticatable, :registerable,
+  devise :database_authenticatable,
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable
 
@@ -16,6 +16,15 @@ class User < ActiveRecord::Base
 
   def nick_name
     name.sub(/@|＠.*/, '')
+  end
+
+  def content_head
+    self.content.split("\n")[0]
+  end
+
+  def content_body
+    contents = self.content.split("\n")
+    contents[1..contents.size].join("\n")
   end
 
   private

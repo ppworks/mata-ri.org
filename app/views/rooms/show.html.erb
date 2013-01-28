@@ -10,6 +10,7 @@
     <% end %>
     <% if user_signed_in? && current_user.instance_of?(User::Reserved) %>
       <%= link_to t('.sign_out'), destroy_user_session_path, method: 'delete' %> 
+      <%= link_to t('users.show.edit'), edit_users_path %>
     <% else %>
       <%= t('.name_notification_html') %>
     <% end %>

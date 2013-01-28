@@ -8,6 +8,8 @@ ja:
         last_arrived_at: '最終入室日時'
         last_left_at: '最終退室日時'
         members_count: '入室人数'
+      user:
+        content: 'プロフィール'
     errors:
       models:
         user:

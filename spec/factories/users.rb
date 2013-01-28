@@ -6,5 +6,6 @@ FactoryGirl.define do
     email 'dummy@ppworks.jp'
     password 'hogehoge'
     password_confirmation 'hogehoge'
+    content "head for content\nbody line1 for content\nbody line2 for content"
   end
 end

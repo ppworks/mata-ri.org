@@ -4,6 +4,7 @@ en:
       no_last_arrived_at: '-'
       no_last_left_at: '-'
       participants: 'Participants histories'
+      users: 'User profiles'
     show:
       arrive: 'Enter'
       content_placeholder: 'Enter your name'
