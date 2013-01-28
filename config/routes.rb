@@ -8,6 +8,8 @@ Zoochat::Application.routes.draw do
     resource :calls, only: [:create]
     resource :fortune_slips, only: [:create]
   end
+  resource :users, only: [:edit, :update]
+  resources :users, only: [:index, :show]
   resources :participants, only: [:index]
   post 'pusher/authentication' => 'pushers#authentication'
   root :to => 'rooms#index'
