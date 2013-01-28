@@ -60,7 +60,7 @@ jQuery ->
   add_member = (member) ->
     remove_member(member)
     $('ul.member').find('[data-class="chat_user"][data-id="' + member.id.toString() + '"]').closest('li').remove()
-    $('ul.member').append('<li><span style="color: ' + member.color + ';" data-class="chat_user" data-id="' + member.id.toString() + '">' + member.name + '</span></li>')
+    $('ul.member').append('<li><span style="color: ' + member.color + ';" data-class="chat_user" data-id="' + member.id.toString() + '">' + member_name(member) + '</span></li>')
 
   remove_member = (member) ->
     $('ul.member').find('[data-class="chat_user"][data-id="' + member.id.toString() + '"]').closest('li').remove()
@@ -68,3 +68,8 @@ jQuery ->
   update_rom = () ->
     $('section.rom .count').html(rom_count.toString())
 
+  member_name = (member) ->
+    if member.type == 'User::Reserved'
+      return '<a href="/users/' + member.id.toString() + '" style="color:' + member.color  + ';" target="_blank">' + member.name + '</a>'
+    else
+      return member.name

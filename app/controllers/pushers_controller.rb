@@ -9,6 +9,7 @@ class PushersController < ApplicationController
         id: current_user.try(:id),
         name: current_user.try(:name),
         color: current_user.try(:color),
+        type: current_user.try(:type),
         path: request.referer,
       },
     )
