@@ -29,6 +29,7 @@ jQuery ->
 
   rom_count = 0
   channel.bind 'pusher:subscription_succeeded', (members) ->
+    rom_count = 0
     members.each (data) ->
       if data.info.path.match /chats$/
         add_member(data.info)
