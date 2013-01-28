@@ -9,6 +9,7 @@ gem 'omniauth-facebook'
 gem 'pusher'
 gem 'em-http-request'
 gem 'kaminari'
+gem 'rinku'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
