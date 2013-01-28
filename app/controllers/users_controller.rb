@@ -3,11 +3,11 @@ class UsersController < ApplicationController
   before_filter :set_current_user, only: [:edit, :update]
 
   def index
-    @users = User.order('updated_at DESC').page(params[:page])
+    @users = User::Reserved.order('updated_at DESC').page(params[:page])
   end
 
   def show
-    @user = User.find(params[:id])
+    @user = User::Reserved.find(params[:id])
   end
 
   def edit
@@ -23,6 +23,6 @@ class UsersController < ApplicationController
 
   private
   def set_current_user
-    @user = User.find(current_user.id)
+    @user = User::Reserved.find(current_user.id)
   end
 end

@@ -19,10 +19,12 @@ class User < ActiveRecord::Base
   end
 
   def content_head
+    return '' unless self.content
     self.content.split("\n")[0]
   end
 
   def content_body
+    return '' unless self.content
     contents = self.content.split("\n")
     contents[1..contents.size].join("\n")
   end

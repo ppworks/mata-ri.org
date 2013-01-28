@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe UsersController do
   subject { response }
-  let(:user) { FactoryGirl.create(:user) }
+  let(:user) { FactoryGirl.create(:user_reserved) }
   
   describe "GET 'index'" do
     before do
