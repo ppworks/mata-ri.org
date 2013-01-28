@@ -1,5 +1,5 @@
 <div class="fortune_slip">
   <span><%= t('.name') %></span>
-  <span class="content"><%= t('.content_html', name: chat.user_name, content: chat.content, color: chat.color) %></span>
+  <span class="content"><%= t('.content_html', name: chat.user_name_linked, content: chat.content, color: chat.color) %></span>
   <time><%= chat.created_at.strftime(t('date.long')) %></time>
 </div>
