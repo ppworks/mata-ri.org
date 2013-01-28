@@ -7,3 +7,5 @@ ja:
     show:
       arrive: '入室'
       content_placeholder: 'お名前を入力して下さい'
+      name_notification_html: '<a href="/users/auth/facebook">facebookログイン</a>すると名前をあなた専用に出来ます。'
+      sign_out: 'ログアウト'

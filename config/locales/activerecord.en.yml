@@ -8,3 +8,9 @@ en:
         last_arrived_at: 'Last Arrived At'
         last_left_at: 'Last Left At'
         members_count: 'Member Count'
+    errors:
+      models:
+        user:
+          attributes:
+            name:
+              reserved: 'This name is reserved'

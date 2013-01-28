@@ -8,3 +8,10 @@ ja:
         last_arrived_at: '最終入室日時'
         last_left_at: '最終退室日時'
         members_count: '入室人数'
+    errors:
+      models:
+        user:
+          attributes:
+            name:
+              reserved: 'その名前は既に登録済です'
+              blank: '名前を入力して下さい'

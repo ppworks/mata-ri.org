@@ -7,3 +7,5 @@ en:
     show:
       arrive: 'Enter'
       content_placeholder: 'Enter your name'
+      name_notification_html: '<a href="/users/auth/facebook">Sign in with facebook account</a>, this name will belong to you.'
+      sign_out: 'Sign out'

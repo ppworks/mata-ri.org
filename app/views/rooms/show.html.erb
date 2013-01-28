@@ -5,6 +5,14 @@
 <%= form_tag room_participants_path(@room) do |form| %>
   <div>
     <%= text_field_tag :user_name, current_user.try(:name), placeholder: t('.content_placeholder') %>
+    <% if flash[:error] %>
+      <%= flash[:error][:name].join %>
+    <% end %>
+    <% if user_signed_in? && current_user.instance_of?(User::Reserved) %>
+      <%= link_to t('.sign_out'), destroy_user_session_path, method: 'delete' %> 
+    <% else %>
+      <%= t('.name_notification_html') %>
+    <% end %>
   </div>
   <div>
     <% @colors.each do|color| %>
