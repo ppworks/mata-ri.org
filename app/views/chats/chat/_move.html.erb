@@ -1,6 +1,6 @@
 <div class="move">
   <i class=" icon-bullhorn"></i>
-  <span style="color: <%= chat.color %>"><%= chat.user_name %></span>
+  <span style="color: <%= chat.color %>"><%= chat.user_name_linked %></span>
   <span class="content">
     <% if chat.origin? %>
       <%= t('.origin.content_html', room_name: chat.origin_room.name, target_room_name: chat.target_room.name) %>

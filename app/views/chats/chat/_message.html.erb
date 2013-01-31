@@ -1,5 +1,5 @@
 <div class="message <%= chat.style %>">
-  <span style="color: <%= chat.color %>"><%= chat.user_name %></span>
+  <span style="color: <%= chat.color %>"><%= chat.user_name_linked %></span>
   <span class="content"><%= t('.content_html', content: chat.content, color: chat.color) %></span>
   <time><%= chat.created_at.strftime(t('date.long')) %></time>
 </div>

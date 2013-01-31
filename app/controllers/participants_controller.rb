@@ -13,10 +13,12 @@ class ParticipantsController < ApplicationController
     begin
       User.transaction do
         if user_signed_in?
-          current_user.update_attributes(name: name, color: color)
+          @user = User.find(current_user.id)
+          @user.update_attributes!(name: name, color: color)
         else
-          user = User::Guest.create!(name: name, color: color)
-          sign_in(user)
+          @user = User::Guest.new(name: name, color: color)
+          @user.save!
+          sign_in(@user)
         end
         @chat = @room.chat_arriveds.create!(
           user_id: current_user.id,
@@ -28,7 +30,7 @@ class ParticipantsController < ApplicationController
     rescue => e
       logger.error e.to_yaml
       e.backtrace.each { |line| logger.error line }
-      redirect_to room_path(@room)
+      redirect_to room_path(@room), flash: { error: @user.errors.messages }
     end
   end
 

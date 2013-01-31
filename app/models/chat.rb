@@ -6,6 +6,7 @@ class Chat < ActiveRecord::Base
   belongs_to :room
   belongs_to :origin_room, class_name: 'Room'
   belongs_to :target_room, class_name: 'Room'
+  belongs_to :user
 
   scope :short_log, lambda{
     order('id DESC')
@@ -59,6 +60,18 @@ class Chat < ActiveRecord::Base
 
   def target?
     self.target_room_id == self.room_id
+  end
+
+  def user_name_linked
+    return self.user_name unless self.user
+    if self.try(:user).try('instance_of?', User::Reserved)
+      ApplicationController.helpers.link_to(self.user_name,
+                                            Rails.application.routes.url_helpers.user_path(self.user),
+                                            style: "color: #{self.color}",
+                                            target: '_blank')
+    else
+      self.user_name
+    end
   end
 
   private

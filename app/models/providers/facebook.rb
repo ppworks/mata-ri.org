@@ -12,7 +12,7 @@ module Providers::Facebook
       image = auth['info']['image'].gsub(/(type=)(.*)/, '\1')
       if connection.nil?
         if current_user.nil?
-          user = User.create!(
+          user = User::Reserved.create!(
             name: name,
             email: auth['info']['email'],
             image: image,
@@ -20,6 +20,9 @@ module Providers::Facebook
           )
         else
           user = current_user
+          user.type = 'User::Reserved'
+          user.save!
+          user = User.find(user.id)
         end
         connection = Connection.create!(
           provider_id: facebook.id,
@@ -33,9 +36,6 @@ module Providers::Facebook
         )
       else
         user = User.find connection[:user_id]
-        user.name = name
-        user.image = image
-        user.save!
         connection.name = name
         connection.image = image
         connection.email = auth['info']['email']

@@ -23,4 +23,14 @@ describe User do
       it { should have(1).items }
     end
   end 
+
+  describe 'content_head' do
+    subject { user.content_head }
+    it { should == 'head for content' }
+  end
+
+  describe 'content_body' do
+    subject { user.content_body }
+    it { should == "body line1 for content\nbody line2 for content" }
+  end
 end

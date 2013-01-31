@@ -1,6 +1,6 @@
 <div class="left">
   <i class=" icon-bullhorn"></i>
-  <span style="color: <%= chat.color %>"><%= chat.user_name %></span>
+  <span style="color: <%= chat.color %>"><%= chat.user_name_linked %></span>
   <span class="content">
     <% if linked_room_name %>
       <%= t('.linked_room.content_html', room_id: chat.origin_room_id, room_name: chat.origin_room.name) %>

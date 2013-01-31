@@ -1,0 +1,11 @@
+<section>
+  <h2><%= @user.name %></h2>
+  <div class="content">
+    <h3><%= @user.content_head %></h3>
+    <div class="body"><%= simple_format Rinku.auto_link(@user.content_body, mode=:all) %></div>
+  </div>
+  <time><%= @user.updated_at.strftime(t('date.long')) %></time>
+</section>
+<% if user_signed_in? %>
+  <%= link_to t('.edit'), edit_users_path %>
+<% end %>

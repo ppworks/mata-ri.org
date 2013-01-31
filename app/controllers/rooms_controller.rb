@@ -18,5 +18,6 @@ class RoomsController < ApplicationController
     @chats = @room.chats.short_log.all.to_a
 
     @colors = Chat.colors
+    session["user_return_to"] = request.path
   end
 end
