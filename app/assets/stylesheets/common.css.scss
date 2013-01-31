@@ -17,6 +17,9 @@ body {
     margin: 10px auto;
     text-align: center;
     width: 300px;
+    >li {
+      line-height: 1.5em;
+    }
   }
   table.rooms {
     background: #e9e9e9;
