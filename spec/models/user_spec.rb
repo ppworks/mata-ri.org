@@ -1,3 +1,4 @@
+# coding: utf-8
 require 'spec_helper'
 
 describe User do
@@ -32,5 +33,35 @@ describe User do
   describe 'content_body' do
     subject { user.content_body }
     it { should == "body line1 for content\nbody line2 for content" }
+  end
+
+  describe 'set basic name' do
+    let(:base_name) { 'てすと' }
+    let(:user_name) { user.name }
+    subject { user }
+    before do
+      user.name = user_name
+      user.save
+    end
+    context 'given ""' do
+      let(:user_name) { "#{base_name}" }
+      it { user.base_name.should == base_name }
+    end
+    context 'given "@status"' do
+      let(:user_name) { "#{base_name}@昼休み" }
+      it { user.base_name.should == base_name }
+    end
+    context 'given "@"' do
+      let(:user_name) { "#{base_name}@" }
+      it { user.base_name.should == base_name }
+    end
+    context 'given "＠status"' do
+      let(:user_name) { "#{base_name}＠ちょっとだけ" }
+      it { user.base_name.should == base_name }
+    end
+    context 'given "＠"' do
+      let(:user_name) { "#{base_name}＠" }
+      it { user.base_name.should == base_name }
+    end
   end
 end

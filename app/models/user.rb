@@ -36,6 +36,6 @@ class User < ActiveRecord::Base
   end
 
   def set_base_name
-    self.base_name = name.sub(/@|＠.*/, '')
+    self.base_name = name.sub(/(@|＠).*/, '')
   end
 end
