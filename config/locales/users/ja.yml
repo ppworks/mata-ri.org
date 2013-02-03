@@ -2,3 +2,6 @@ ja:
   users:
     show:
       edit: 'プロフィールを編集する'
+      chat_count: '総発言回数'
+    form:
+      update: 'プロフィールを更新する'

@@ -1,4 +1,9 @@
-<%= form_tag(users_path, method: :put) do |f| %>
-  <%= text_area(:user, :content) %>
-  <%= submit_tag %>
-<% end %>
+<section class="user">
+  <h2><%= @user.name %></h2>
+  <div class="content">
+  <%= form_tag(users_path, method: :put) do |f| %>
+    <%= text_area(:user, :content) %>
+    <%= submit_tag t('.update') %>
+  <% end %>
+</div>
+</section>

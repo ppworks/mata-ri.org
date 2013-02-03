@@ -1,9 +1,13 @@
-<h1><%= t('rooms.index.users') %></h1>
+<% content_for :title, "#{t('rooms.index.users')} " %>
+<% content_for :body_class, 'users' %>
+<h1>
+  <%= link_to image_tag('mattarimoji2.gif'), root_path %>
+</h1>
 
 <ul class="users">
 <% @users.each do |user| %>
   <li>
-    <section>
+    <section class="user">
       <h2><%= link_to user.name, user_path(user) %></h2>
       <div class="content"><%= user.content_head %></div>
       <time><%= user.updated_at.strftime(t('date.long')) %></time>

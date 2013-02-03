@@ -2,7 +2,7 @@
 <% content_for :body_data_room_id, @room.id.to_s %>
 <h1><%= @room.name %></h1>
 
-<%= form_tag room_participants_path(@room) do |form| %>
+<%= form_tag room_participants_path(@room), id: 'entry_chat' do |form| %>
   <div>
     <%= text_field_tag :user_name, current_user.try(:name), placeholder: t('.content_placeholder') %>
     <% if flash[:error] %>
@@ -12,7 +12,9 @@
       <%= link_to t('.sign_out'), destroy_user_session_path, method: 'delete' %> 
       <%= link_to t('users.show.edit'), edit_users_path %>
     <% else %>
-      <%= t('.name_notification_html') %>
+      <div class="notification">
+        <%= t('.name_notification_html') %>
+      </div>
     <% end %>
   </div>
   <div>

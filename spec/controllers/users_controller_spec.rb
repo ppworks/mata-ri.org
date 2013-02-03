@@ -27,12 +27,10 @@ describe UsersController do
   end
 
   describe "put 'update'" do
-    let(:url) { '/room/1' }
     before do
-      request.stub(:referer).and_return(url)
       sign_in user
       put :update
     end
-    it { should redirect_to url }
+    it { should redirect_to users_path }
   end
 end

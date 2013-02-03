@@ -12,6 +12,7 @@ class User < ActiveRecord::Base
 
   has_many :connections, dependent: :delete_all
   has_many :providers, through: :connections
+  has_many :chats
 
   before_validation :set_base_name
 

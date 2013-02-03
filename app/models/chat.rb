@@ -18,6 +18,10 @@ class Chat < ActiveRecord::Base
     .where('room_id = origin_room_id')
   }
 
+  scope :message, lambda {
+    where(type: ['Chat::Message'])
+  }
+
   after_create :send_to_pusher
 
   class << self
